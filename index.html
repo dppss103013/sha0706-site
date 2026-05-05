@@ -3,347 +3,474 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2026 捷運盃黑客松｜活動資訊</title>
+  <title>2026 捷運盃黑客松｜智慧城市創新挑戰</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
-      color: #1f2937;
-      background: #f5f7fb;
-      line-height: 1.7;
+      background: #f4f7fb;
+      color: #172033;
+      line-height: 1.75;
     }
+    a { color: inherit; text-decoration: none; }
 
-    .topbar {
-      background: #005bac;
-      color: white;
-      padding: 14px 8%;
+    .topline {
+      background: #003f7d;
+      color: #dbeafe;
+      font-size: 14px;
+      padding: 8px 8%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: 1px;
-    }
-
-    .nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 15px;
-      opacity: 0.95;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #005bac 0%, #0077c8 48%, #00a6a6 100%);
-      color: white;
-      padding: 88px 8% 96px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      right: -120px;
-      top: 20px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(36px, 6vw, 64px);
-      line-height: 1.15;
-      margin-bottom: 20px;
-      font-weight: 900;
-    }
-
-    .hero p {
-      max-width: 720px;
-      font-size: 19px;
-      opacity: 0.95;
-      margin-bottom: 32px;
-    }
-
-    .hero-actions {
-      display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 13px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 800;
-      transition: 0.2s;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #dbe3ee;
+      padding: 14px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .btn-primary {
-      background: white;
-      color: #005bac;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: #004f9e;
+      font-size: 20px;
     }
-
-    .btn-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.7);
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #005bac, #00a6a6);
+      display: grid;
+      place-items: center;
       color: white;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(0,91,172,.28);
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
+    nav { display: flex; align-items: center; gap: 22px; font-size: 15px; font-weight: 700; }
+    nav a { color: #334155; }
+    nav a:hover { color: #005bac; }
+    .nav-cta {
+      background: #005bac;
+      color: white;
+      padding: 9px 16px;
+      border-radius: 999px;
     }
+    .nav-cta:hover { color: white; background: #004987; }
 
-    .container {
-      width: 84%;
-      max-width: 1120px;
-      margin: -44px auto 0;
+    .hero {
+      background:
+        radial-gradient(circle at 82% 15%, rgba(0,166,166,.30), transparent 28%),
+        radial-gradient(circle at 15% 78%, rgba(255,255,255,.17), transparent 26%),
+        linear-gradient(135deg, #004987 0%, #006ec7 48%, #00a6a6 100%);
+      color: white;
+      padding: 92px 8% 116px;
+      overflow: hidden;
       position: relative;
-      z-index: 2;
     }
+    .hero-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 46px;
+      align-items: center;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.28);
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.08;
+      font-weight: 950;
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+    }
+    .hero p { font-size: 19px; max-width: 720px; opacity: .96; margin-bottom: 32px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 24px;
+      border-radius: 10px;
+      font-weight: 900;
+      transition: .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: white; color: #005bac; }
+    .btn-secondary { border: 1px solid rgba(255,255,255,.75); color: white; }
 
-    .info-grid {
+    .hero-panel {
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.18);
+    }
+    .hero-panel h3 { font-size: 22px; margin-bottom: 18px; }
+    .panel-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+    }
+    .panel-row:last-child { border-bottom: 0; }
+    .panel-row span { opacity: .82; }
+    .panel-row strong { text-align: right; }
+
+    .wrap { width: 84%; max-width: 1180px; margin: auto; }
+    .stats {
+      margin-top: -56px;
+      position: relative;
+      z-index: 3;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
-      margin-bottom: 54px;
     }
-
-    .info-card {
+    .stat-card {
       background: white;
+      border-radius: 18px;
       padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 14px 36px rgba(15,23,42,.12);
       border-top: 5px solid #00a6a6;
     }
-
-    .info-card span {
-      display: block;
-      color: #64748b;
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-
-    .info-card strong {
-      font-size: 22px;
-      color: #0f172a;
-    }
+    .stat-card span { display: block; color: #64748b; font-size: 14px; margin-bottom: 8px; }
+    .stat-card strong { font-size: 24px; color: #0f172a; }
 
     section {
       background: white;
+      margin-top: 30px;
+      padding: 46px;
+      border-radius: 24px;
+      box-shadow: 0 10px 28px rgba(15,23,42,.07);
+      border: 1px solid #e5edf6;
+    }
+    .section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 24px; }
+    h2 { font-size: 32px; color: #004f9e; line-height: 1.25; }
+    .section-sub { color: #64748b; max-width: 680px; }
+
+    .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
+    .feature-card {
+      background: #f7fbff;
+      border: 1px solid #d8eaff;
       border-radius: 18px;
-      padding: 42px;
-      margin-bottom: 26px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      padding: 24px;
     }
-
-    section h2 {
-      font-size: 30px;
-      color: #005bac;
-      margin-bottom: 18px;
-      border-left: 6px solid #00a6a6;
-      padding-left: 14px;
+    .icon {
+      width: 44px; height: 44px; border-radius: 14px;
+      background: #e6f6ff; color: #005bac;
+      display: grid; place-items: center;
+      font-size: 22px; margin-bottom: 14px;
     }
+    .feature-card h3 { color: #0f4c81; margin-bottom: 8px; font-size: 20px; }
 
-    .theme-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    .timeline { position: relative; margin-top: 18px; }
+    .timeline::before { content: ""; position: absolute; left: 18px; top: 8px; bottom: 8px; width: 4px; background: #d8eaff; border-radius: 999px; }
+    .timeline-item { position: relative; padding-left: 58px; margin-bottom: 24px; }
+    .timeline-item::before { content: ""; position: absolute; left: 7px; top: 4px; width: 26px; height: 26px; border-radius: 50%; background: #00a6a6; border: 5px solid #e7fbfb; }
+    .timeline-item strong { display: block; color: #005bac; font-size: 19px; margin-bottom: 4px; }
+
+    .criteria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 20px; }
+    .criteria div { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px; }
+    .criteria b { color: #005bac; font-size: 20px; }
+
+    .info-table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 16px; margin-top: 18px; }
+    .info-table th, .info-table td { padding: 16px 18px; border-bottom: 1px solid #e2e8f0; text-align: left; }
+    .info-table th { width: 180px; background: #f1f7ff; color: #004f9e; }
+    .info-table tr:last-child th, .info-table tr:last-child td { border-bottom: 0; }
+
+    .notice-box {
       margin-top: 22px;
+      background: #fff7ed;
+      color: #7c2d12;
+      border: 1px solid #fed7aa;
+      border-radius: 16px;
+      padding: 18px 20px;
+      font-weight: 700;
     }
 
-    .theme {
-      background: #f0f8ff;
-      border: 1px solid #d7eaff;
-      padding: 22px;
-      border-radius: 14px;
-    }
+    .faq-item { border-bottom: 1px solid #e2e8f0; padding: 18px 0; }
+    .faq-item:last-child { border-bottom: 0; }
+    .faq-item h3 { color: #0f172a; margin-bottom: 6px; }
 
-    .theme h3 {
-      color: #004f9e;
-      margin-bottom: 8px;
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, #003f7d, #006ec7);
+      color: white;
     }
+    .cta-section h2 { color: white; }
+    .cta-section p { max-width: 720px; margin: 12px auto 26px; opacity: .92; }
 
-    .timeline {
-      margin-top: 20px;
-      border-left: 4px solid #00a6a6;
-      padding-left: 24px;
-    }
-
-    .timeline-item {
-      margin-bottom: 20px;
-    }
-
-    .timeline-item strong {
-      color: #005bac;
-      font-size: 18px;
-    }
-
-    .notice {
-      background: #eef7ff;
-      border: 1px solid #cfe8ff;
-      padding: 22px;
-      border-radius: 14px;
-      margin-top: 18px;
-    }
-
-    .footer {
-      margin-top: 50px;
+    footer {
+      margin-top: 40px;
       background: #0f172a;
       color: #cbd5e1;
-      padding: 36px 8%;
-      text-align: center;
-      font-size: 14px;
+      padding: 40px 8%;
     }
+    .footer-inner { max-width: 1180px; margin: auto; display: flex; justify-content: space-between; gap: 22px; flex-wrap: wrap; }
+    footer b { color: white; }
+    .muted { color: #64748b; }
 
     @media (max-width: 900px) {
-      .nav {
-        display: none;
-      }
-
-      .info-grid,
-      .theme-list {
-        grid-template-columns: 1fr;
-      }
-
-      .container {
-        width: 92%;
-      }
-
-      section {
-        padding: 28px;
-      }
+      nav { display: none; }
+      .hero-inner, .stats, .cards-3, .criteria { grid-template-columns: 1fr; }
+      .wrap { width: 92%; }
+      .hero { padding: 70px 5% 96px; }
+      section { padding: 30px 22px; }
+      .section-head { display: block; }
+      .info-table th { width: 120px; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="logo">2026 捷運盃黑客松</div>
-    <nav class="nav">
+  <div class="topline">
+    <span>2026 智慧城市創新挑戰｜捷運服務 × AI 應用 × 數據分析</span>
+    <span>活動日期：2026 / 5 / 7</span>
+  </div>
+
+  <header>
+    <a class="brand" href="#top">
+      <span class="brand-mark">M</span>
+      <span>捷運盃黑客松</span>
+    </a>
+    <nav>
       <a href="#about">活動介紹</a>
-      <a href="#info">活動資訊</a>
       <a href="#theme">競賽主題</a>
-      <a href="#schedule">流程</a>
+      <a href="#schedule">活動流程</a>
+      <a href="#rules">參賽資訊</a>
+      <a href="#faq">常見問題</a>
+      <a class="nav-cta" href="#register">立即參加</a>
     </nav>
   </header>
 
-  <main class="hero">
-    <div class="badge">智慧城市 × AI × 捷運創新</div>
-    <h1>2026 捷運盃黑客松</h1>
-    <p>
-      邀請青年開發者、設計師與創新團隊，一起運用 AI、大數據與智慧服務，
-      打造更便利、更智慧、更貼近生活的捷運體驗。
-    </p>
-    <div class="hero-actions">
-      <a href="#info" class="btn btn-primary">查看活動資訊</a>
-      <a href="#theme" class="btn btn-secondary">了解競賽主題</a>
+  <main id="top" class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="kicker">🚇 2026 Metro Hackathon</div>
+        <h1>用科技打造下一代捷運體驗</h1>
+        <p>
+          2026 捷運盃黑客松邀請學生、開發者、設計師與創新團隊，
+          以 AI、大數據、智慧服務與使用者體驗為核心，提出能改善捷運通勤與城市移動的創新解決方案。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#register">查看參加資訊</a>
+          <a class="btn btn-secondary" href="#theme">探索競賽主題</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <h3>活動重點</h3>
+        <div class="panel-row"><span>活動日期</span><strong>2026 / 5 / 7</strong></div>
+        <div class="panel-row"><span>活動形式</span><strong>黑客松競賽</strong></div>
+        <div class="panel-row"><span>核心方向</span><strong>AI、資料、智慧交通</strong></div>
+        <div class="panel-row"><span>適合對象</span><strong>高中生 / 大學生 / 團隊</strong></div>
+        <div class="panel-row"><span>成果形式</span><strong>作品原型 + 簡報發表</strong></div>
+      </aside>
     </div>
   </main>
 
-  <div class="container" id="info">
-    <div class="info-grid">
-      <div class="info-card">
-        <span>參加日期</span>
-        <strong>2026 / 5 / 7</strong>
-      </div>
-      <div class="info-card">
-        <span>活動類型</span>
-        <strong>黑客松競賽</strong>
-      </div>
-      <div class="info-card">
-        <span>參加對象</span>
-        <strong>學生 / 團隊</strong>
-      </div>
-      <div class="info-card">
-        <span>主題方向</span>
-        <strong>AI 智慧應用</strong>
-      </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat-card"><span>參加日期</span><strong>2026 / 5 / 7</strong></div>
+      <div class="stat-card"><span>競賽方向</span><strong>智慧捷運</strong></div>
+      <div class="stat-card"><span>作品類型</span><strong>網站 / App / AI</strong></div>
+      <div class="stat-card"><span>參賽方式</span><strong>個人或組隊</strong></div>
     </div>
 
     <section id="about">
-      <h2>活動介紹</h2>
-      <p>
-        「2026 捷運盃黑客松」以智慧交通與城市服務為核心，鼓勵參賽者透過程式開發、
-        資料分析、介面設計與創意思考，提出能改善捷運使用體驗的創新解決方案。
-      </p>
-      <div class="notice">
-        本頁為活動資訊展示頁，可放置於個人網站、作品集或專題頁面中使用。
+      <div class="section-head">
+        <div>
+          <h2>活動介紹</h2>
+          <p class="section-sub">以真實城市交通情境為題，將技術能力轉化成可展示的作品。</p>
+        </div>
       </div>
+      <p>
+        「2026 捷運盃黑客松」聚焦於捷運服務、乘客體驗、即時資訊、站務效率與智慧城市應用。
+        參賽者將在限定時間內完成構想、開發、設計與成果發表，並以實用性、創新性與完成度作為評選重點。
+      </p>
+      <p style="margin-top: 14px;">
+        這類活動非常適合放入個人作品集、學習歷程或特殊選才資料中，因為它能展現你的程式能力、問題解決能力、團隊合作與簡報表達能力。
+      </p>
     </section>
 
     <section id="theme">
-      <h2>競賽主題</h2>
-      <p>參賽團隊可從捷運服務、乘客體驗、城市移動與智慧管理等方向發想作品。</p>
-
-      <div class="theme-list">
-        <div class="theme">
+      <div class="section-head">
+        <div>
+          <h2>競賽主題方向</h2>
+          <p class="section-sub">可以選擇一個方向深入開發，也可以結合多個主題做成完整服務。</p>
+        </div>
+      </div>
+      <div class="cards-3">
+        <div class="feature-card">
+          <div class="icon">🤖</div>
           <h3>AI 智慧客服</h3>
-          <p>設計能協助旅客查詢路線、票價、轉乘與即時資訊的智慧服務。</p>
+          <p>設計能回答路線、票價、轉乘、遺失物、站點資訊的智慧助理，提升乘客查詢效率。</p>
         </div>
-        <div class="theme">
-          <h3>大數據分析</h3>
-          <p>運用資料分析改善人流預測、尖峰分流與站點服務效率。</p>
+        <div class="feature-card">
+          <div class="icon">📊</div>
+          <h3>人流與資料分析</h3>
+          <p>透過資料視覺化、尖峰預測與站點分析，提出更有效率的分流與營運建議。</p>
         </div>
-        <div class="theme">
-          <h3>行動應用創新</h3>
-          <p>打造更直覺、更方便的 App 功能，提升日常通勤體驗。</p>
+        <div class="feature-card">
+          <div class="icon">📱</div>
+          <h3>行動服務創新</h3>
+          <p>打造 App 或網站原型，整合路線規劃、即時提醒、無障礙資訊與個人化服務。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">♿</div>
+          <h3>友善交通設計</h3>
+          <p>針對長者、身障者、觀光客或第一次搭乘捷運的人，設計更直覺的使用流程。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🌱</div>
+          <h3>永續與節能</h3>
+          <p>提出節能減碳、綠色運輸、低碳通勤或智慧能源管理相關應用。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🛡️</div>
+          <h3>安全與即時通報</h3>
+          <p>設計異常事件回報、壅塞提醒、緊急資訊推播或站內安全輔助系統。</p>
         </div>
       </div>
     </section>
 
     <section id="schedule">
-      <h2>活動流程</h2>
+      <div class="section-head">
+        <div>
+          <h2>5/7 活動流程</h2>
+          <p class="section-sub">以下為網站展示用流程，可依實際活動時間再調整。</p>
+        </div>
+      </div>
       <div class="timeline">
         <div class="timeline-item">
           <strong>09:00 — 報到與開幕</strong>
-          <p>參賽團隊完成報到，說明競賽規則與主題方向。</p>
+          <p>完成團隊報到，說明競賽規則、評分標準與當日挑戰方向。</p>
         </div>
         <div class="timeline-item">
-          <strong>10:00 — 團隊開發</strong>
-          <p>進行構想發展、程式開發、介面設計與簡報製作。</p>
+          <strong>10:00 — 主題發想與分工</strong>
+          <p>確認作品定位、使用者情境、技術架構與團隊分工。</p>
+        </div>
+        <div class="timeline-item">
+          <strong>11:00 — 原型開發</strong>
+          <p>進行前端畫面、後端功能、AI 模型串接、資料分析或簡報素材製作。</p>
+        </div>
+        <div class="timeline-item">
+          <strong>14:30 — 測試與簡報準備</strong>
+          <p>整理成果展示流程，修正錯誤並準備 3～5 分鐘發表內容。</p>
         </div>
         <div class="timeline-item">
           <strong>15:30 — 成果發表</strong>
-          <p>各隊展示作品原型、應用情境與解決方案。</p>
+          <p>展示作品原型、解決的問題、技術亮點與未來應用可能。</p>
         </div>
         <div class="timeline-item">
-          <strong>17:00 — 評選與頒獎</strong>
-          <p>依創新性、完整度、實用性與簡報表現進行評分。</p>
+          <strong>17:00 — 評選與交流</strong>
+          <p>由評審依標準評分，並進行團隊交流與成果回饋。</p>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>適合參加的人</h2>
-      <p>
-        對程式設計、AI、資料分析、UI/UX、智慧城市或交通服務有興趣的人都適合參加。
-        即使是高中生，也可以透過這類競賽累積專題經驗與作品集內容。
-      </p>
+    <section id="rules">
+      <div class="section-head">
+        <div>
+          <h2>參賽資訊</h2>
+          <p class="section-sub">讓網站看起來更完整，也讓瀏覽者一眼看懂活動內容。</p>
+        </div>
+      </div>
+      <table class="info-table">
+        <tr><th>活動名稱</th><td>2026 捷運盃黑客松｜智慧城市創新挑戰</td></tr>
+        <tr><th>參加日期</th><td>2026 年 5 月 7 日</td></tr>
+        <tr><th>參加對象</th><td>對程式設計、AI、資料分析、UI/UX、智慧交通有興趣者</td></tr>
+        <tr><th>參賽形式</th><td>可個人參加，也可 2～5 人組隊參加</td></tr>
+        <tr><th>建議技能</th><td>Python、JavaScript、網頁前端、資料分析、簡報設計、UI/UX</td></tr>
+        <tr><th>成果提交</th><td>作品原型、簡報檔、功能展示或概念影片</td></tr>
+      </table>
     </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>評選標準</h2>
+          <p class="section-sub">黑客松不只看程式，也看創意、完整度與解決問題的能力。</p>
+        </div>
+      </div>
+      <div class="criteria">
+        <div><b>30%</b><br>創新性與主題契合度</div>
+        <div><b>25%</b><br>作品完成度與技術實作</div>
+        <div><b>25%</b><br>實用性與使用者體驗</div>
+        <div><b>20%</b><br>簡報表達與展示效果</div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-head">
+        <div>
+          <h2>常見問題</h2>
+          <p class="section-sub">幫使用者快速理解活動，也讓頁面更像正式活動網站。</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <h3>沒有很強的程式能力可以參加嗎？</h3>
+        <p>可以。黑客松需要不同角色，包含企劃、設計、簡報、資料整理與程式開發。重點是能提出清楚的問題與解決方案。</p>
+      </div>
+      <div class="faq-item">
+        <h3>高中生適合參加嗎？</h3>
+        <p>適合。這類活動能累積作品集，也能展現自主學習、資訊能力與團隊合作經驗。</p>
+      </div>
+      <div class="faq-item">
+        <h3>一定要完成完整產品嗎？</h3>
+        <p>不一定。可以是可操作的原型、Demo 網頁、AI 功能展示、資料分析圖表或完整企劃簡報。</p>
+      </div>
+      <div class="faq-item">
+        <h3>可以用現成 API 或開源工具嗎？</h3>
+        <p>通常可以，但建議在簡報中清楚說明使用了哪些工具，以及團隊自己完成的部分。</p>
+      </div>
+    </section>
+
+    <section id="register" class="cta-section">
+      <h2>準備好挑戰智慧捷運了嗎？</h2>
+      <p>
+        5/7 一起用 AI、資料與創意打造更好的捷運體驗。立即整理你的想法，組隊開始準備作品方向。
+      </p>
+      <a class="btn btn-primary" href="#rules">查看參賽資訊</a>
+    </section>
+
+    <div class="notice-box">
+      注意：本頁為活動資訊展示與作品集用途之網頁範本，非正式官方公告頁。實際活動資訊請以主辦單位公告為準。
+    </div>
   </div>
 
-  <footer class="footer">
-    © 2026 捷運盃黑客松活動資訊頁｜本頁面為示範網站版型，非官方公告頁面
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <b>2026 捷運盃黑客松</b><br>
+        智慧城市創新挑戰｜Metro Hackathon 2026
+      </div>
+      <div>
+        活動日期：2026 / 5 / 7<br>
+        <span class="muted">網站版型：活動介紹頁 / 作品集展示頁</span>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
