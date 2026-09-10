@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2026 臺北資通訊公開挑戰賽 TIOC｜9/9 12:00 世貿展覽大樓</title>
-  <meta name="description" content="TIOC 2026 臺北資通訊公開挑戰賽於 9 月 9 日中午 12:00 在台北世界貿易中心展覽大樓舉行。總獎金新臺幣 220 萬，開放大專、高中職與產業組報名。" />
+  <title>2026 臺北資通訊公開挑戰賽 TIOC｜決賽 9/11 12:00 世貿展覽大樓</title>
+  <meta name="description" content="TIOC 2026 決賽於 9 月 11 日中午 12:00 在台北世界貿易中心展覽大樓舉行。四組各 30 隊正取，總獎金新臺幣 220 萬。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
@@ -67,6 +67,10 @@ img, iframe { max-width: 100%; }
   color: #041018 !important;
   padding: 0.4rem 0.8rem;
   font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.92rem;
 }
 .nav-toggle { display: none; }
 .hero {
@@ -237,6 +241,70 @@ footer {
   .hero-meta, .prize-row, .split, .register form { grid-template-columns: 1fr; }
   .hero h1 { max-width: none; }
 }
+.ticker {
+  background: #121c33;
+  border-bottom: 1px solid var(--line);
+  color: var(--gold);
+  font-size: 0.86rem;
+  padding: 0.45rem 6vw;
+  font-family: "Share Tech Mono", monospace;
+}
+.cd-label { color: var(--gold); font-weight: 700; margin: 1.2rem 0 0.4rem; letter-spacing: 0.06em; }
+.btn.gold { background: var(--gold); color: #1a1404; }
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 6, 14, 0.82);
+  z-index: 50;
+  padding: 3vh 4vw;
+  overflow: auto;
+}
+.overlay.open { display: block; }
+.sheet {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.4rem 1.2rem 2rem;
+}
+.sheet-top { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
+.doc-no { color: var(--muted); font-size: 0.82rem; font-family: "Share Tech Mono", monospace; }
+.final-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+  margin: 1rem 0 1.2rem;
+}
+.final-box div { border: 1px solid var(--line); background: var(--panel); padding: 0.8rem; }
+.final-box span { display: block; color: var(--muted); font-size: 0.78rem; }
+.tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.8rem 0; }
+.tabs button {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  font: inherit;
+}
+.tabs button.on { background: var(--cyan); color: #041018; font-weight: 700; }
+.roster-tools { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+.roster-tools input { min-width: 220px; flex: 1; }
+.roster-table { width: 100%; font-size: 0.88rem; }
+.roster-table .hi { background: rgba(240, 193, 75, 0.16); outline: 1px solid var(--gold); }
+.muted { color: var(--muted); }
+.close-x {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  font: inherit;
+}
+.desk { font-family: "Share Tech Mono", monospace; color: var(--cyan); }
+@media (max-width: 860px) {
+  .final-box { grid-template-columns: 1fr; }
+}
   </style>
 </head>
 <body>
@@ -254,23 +322,25 @@ footer {
       <a href="#agenda">議程</a>
       <a href="#venue">會場</a>
       <a href="#org">主辦</a>
-      <a href="#register" class="nav-cta">立即報名</a>
+      <button class="nav-cta" type="button" data-open-roster>複賽名單</button>
     </nav>
   </header>
+  <p class="ticker">公告編號 TIOC-FIN-20260910-03　｜　複賽成績已核定　｜　決賽正取四組各 30 隊、每隊 4 人　｜　棄權遞補截止 9/11 09:30</p>
 
   <main id="top">
     <section class="hero">
-      <p class="eyebrow">THE 4TH TAIPEI ICT OPEN CHALLENGE · 2026.09.09</p>
-      <h1>在世貿展覽大樓<br />用 8 小時決定今年的資通訊冠軍</h1>
+      <p class="eyebrow">THE 4TH TAIPEI ICT OPEN CHALLENGE · FINAL · 2026.09.11</p>
+      <h1>決賽倒數：9 月 11 日中午 12:00<br />世貿展覽大樓見</h1>
       <p class="lede">
-        第四屆臺北資通訊公開挑戰賽（TIOC 2026）於 <strong>2026 年 9 月 9 日（三）中午 12:00</strong>
+        第四屆臺北資通訊公開挑戰賽複賽已於 9 月 9 日結束。
+        <strong>決賽訂於 2026 年 9 月 11 日（五）中午 12:00</strong>
         在 <strong>台北世界貿易中心展覽大樓（世貿一館）</strong> 準時開賽。
-        現場同步設置成果展示廊道，開放業界、媒體與現場觀賽。
+        四組各取 30 隊正取，全場 120 隊、480 名選手，現場同步開放展示廊道。
       </p>
       <div class="hero-meta">
         <div>
-          <span>日期時間</span>
-          <strong>09 / 09　12:00–20:00</strong>
+          <span>決賽時間</span>
+          <strong>09 / 11　12:00–20:00</strong>
         </div>
         <div>
           <span>地點</span>
@@ -281,6 +351,7 @@ footer {
           <strong>NT$ 2,200,000</strong>
         </div>
       </div>
+      <p class="cd-label">距離決賽開始</p>
       <div class="countdown" id="countdown" aria-live="polite">
         <div><b id="d">00</b><small>天</small></div>
         <div><b id="h">00</b><small>時</small></div>
@@ -288,21 +359,22 @@ footer {
         <div><b id="s">00</b><small>秒</small></div>
       </div>
       <div class="hero-actions">
-        <a class="btn primary" href="#register">12:00 前完成報到</a>
-        <a class="btn ghost" href="#rules">下載競賽章程</a>
+        <button class="btn gold" type="button" data-open-roster>複賽名單（看決賽晉級）</button>
+        <a class="btn primary" href="#register">決賽報到確認</a>
+        <a class="btn ghost" href="#agenda">當日議程</a>
       </div>
     </section>
 
     <section class="stats" id="scale">
-      <h2>本屆預計規模</h2>
-      <p class="section-lead">數字依 8 月 31 日截止的預報名與候補名單統計，現場以報到系統為準。</p>
+      <h2>決賽規模（已核定）</h2>
+      <p class="section-lead">依複賽總成績排序，每組正取 30 隊、備取 8 隊。正取名單公告時間為 2026/09/10 21:00，現場以報到系統為準。</p>
       <div class="stat-grid">
-        <article><b>1,280</b><span>報名選手</span><small>含大專 742、高中職 318、產業組 220</small></article>
-        <article><b>412</b><span>參賽隊伍</span><small>每隊 1–4 人，跨校組隊佔 27%</small></article>
-        <article><b>86</b><span>學校單位</span><small>北中南東離島均有隊伍進入決賽日</small></article>
-        <article><b>47</b><span>企業觀賽</span><small>含半導體、資安、電商與新創</small></article>
-        <article><b>4</b><span>競賽組別</span><small>AI 應用、資安攻防、全端系統、物聯網</small></article>
-        <article><b>2.2M</b><span>獎金總額（新臺幣）</span><small>另加實習錄取名額與雲端額度</small></article>
+        <article><b>1,648</b><span>複賽報名選手</span><small>412 隊完賽，完賽率 94.7%</small></article>
+        <article><b>120</b><span>決賽正取隊伍</span><small>四組各 30 隊，每隊固定 4 人</small></article>
+        <article><b>480</b><span>決賽選手</span><small>含跨校組隊 31%、產業組 18%</small></article>
+        <article><b>32</b><span>備取隊伍</span><small>每組 8 隊，棄權依序遞補</small></article>
+        <article><b>4</b><span>競賽組別</span><small>智慧應用、資安攻防、全端系統、物聯網</small></article>
+        <article><b>2.2M</b><span>獎金總額（新臺幣）</span><small>另加雲端額度與實習名額</small></article>
       </div>
     </section>
 
@@ -311,8 +383,8 @@ footer {
         <div>
           <h2>這不是展覽走秀，是限時實作賽</h2>
           <p>
-            TIOC 自 2023 年起固定於秋季在信義計畫區舉行，定位為「一日決賽、現場評審、公開展示」的資通訊實作公開賽。
-            選手在開賽當下取得題目封包，必須在當天 20:00 前提交可演示的系統、報告與原始碼。
+            TIOC 採三階段：線上預賽、9/9 現場複賽、9/11 現場決賽。
+            決賽選手在 12:00 取得新題目封包，必須在當天 20:00 前提交可演示的系統、報告與原始碼。複賽成績只作為晉級依據，不帶入決賽計分。
           </p>
           <p>
             本屆主題為「<strong>城市即時決策：讓資料在 8 小時內變成可用的公共服務</strong>」。
@@ -326,8 +398,8 @@ footer {
         </div>
         <aside class="card notice">
           <h3>入場與報到</h3>
-          <p>選手請於 <strong>11:00–11:50</strong> 持身分證件與報到 QR Code 至一館南側報到櫃台。12:00 題目封包釋出後不再接受遲到報到。</p>
-          <p>觀賽與媒體請走東側貴賓入口，需事先於官網申請識別證。</p>
+          <p>決賽選手請於 <strong>9/11 11:00–11:50</strong> 持身分證件與報到 QR Code 至一館南側報到櫃台。12:00 題目封包釋出後不再接受遲到報到。</p>
+          <p>請先核對複賽名單之正取編號與決賽桌號。觀賽與媒體走東側貴賓入口，須事先申請識別證。</p>
           <p class="tiny">現場採實名制。未滿 18 歲選手須由指導老師或監護人陪同完成報到。</p>
         </aside>
       </div>
@@ -377,6 +449,7 @@ footer {
 
     <section id="tracks">
       <h2>四個競賽組別</h2>
+      <p class="section-lead">決賽分組與複賽相同，不得跨組改報。每組正取 30 隊，賽區桌號見名單。</p>
       <div class="track-grid">
         <article>
           <h3>A. 智慧應用組</h3>
@@ -395,14 +468,15 @@ footer {
           <p>現場提供感測套件與開發板。作品須能在斷網 10 分鐘內維持最低可用功能。</p>
         </article>
       </div>
+      <p style="margin-top:1.2rem"><button class="btn gold" type="button" data-open-roster>查看四組複賽／決賽名單</button></p>
     </section>
 
     <section id="agenda">
-      <h2>9 月 9 日現場議程</h2>
+      <h2>9 月 11 日決賽議程</h2>
       <ol class="agenda">
-        <li><time>09:30</time><div><strong>場地開放（工作人員／評審）</strong><p>一館展場佈題、網路與電力最後檢查。</p></div></li>
-        <li><time>11:00</time><div><strong>選手報到開始</strong><p>南側報到區發放桌號、識別證與午餐券。</p></div></li>
-        <li><time>12:00</time><div><strong>開賽典禮與題目釋出</strong><p>主辦致詞 8 分鐘後，題目封包與 API 金鑰同步 unlock。</p></div></li>
+        <li><time>09:30</time><div><strong>場地開放（工作人員／評審）</strong><p>一館展場佈題、網路與電力最後檢查。複賽設備清場完成。</p></div></li>
+        <li><time>11:00</time><div><strong>決賽選手報到開始</strong><p>南側報到區核對正取編號、發放桌號、識別證與午餐券。</p></div></li>
+        <li><time>12:00</time><div><strong>決賽開賽與題目釋出</strong><p>主辦致詞 8 分鐘後，決賽題目封包與 API 金鑰同步 unlock。</p></div></li>
         <li><time>12:20</time><div><strong>正式開發時段</strong><p>禁止場外通訊討論題目；緊急聯絡走報到區專線。</p></div></li>
         <li><time>13:00</time><div><strong>展示廊道對民眾開放</strong><p>可參觀過往得獎作品與合作企業攤位，不干擾賽區。</p></div></li>
         <li><time>16:30</time><div><strong>中場技術問答截止</strong><p>此後評測環境僅接受提交，不再釋疑。</p></div></li>
@@ -445,7 +519,7 @@ footer {
 
     <section id="venue">
       <h2>會場：台北世界貿易中心展覽大樓</h2>
-      <p class="section-lead">賽區設於世貿一館地面層 A、B 展區；展示廊道在中廊；頒獎在北側臨時舞台。</p>
+      <p class="section-lead">決賽賽區設於世貿一館地面層。智慧應用組 A 展區桌號 A-01～A-30；資安攻防組 B 展區 B-01～B-30；全端系統組中廊南側；物聯網組中廊北側供電加強迴路。展示廊道在中廊；頒獎在北側臨時舞台。</p>
       <div class="venue-grid">
         <article>
           <h3>地址</h3>
@@ -461,7 +535,7 @@ footer {
         </article>
         <article>
           <h3>現場聯絡</h3>
-          <p>賽務專線 02-2725-3310（僅 9/9 08:30–22:00 值機）<br />Email：desk@tioc2026.tw</p>
+          <p>賽務專線 02-2725-3310（9/11 08:30–22:00 值機）<br />Email：desk@tioc2026.tw　傳真備援：02-2725-3318</p>
         </article>
       </div>
       <div class="map-card">
@@ -506,19 +580,19 @@ footer {
       <h2>賽前記者重點</h2>
       <div class="news-grid">
         <article>
-          <time>2026.08.12</time>
-          <h3>預賽線上關卡結束，412 隊取得決賽日席次</h3>
-          <p>預賽採 72 小時遠端題，通過門檻為綜合分 72 以上。候補 40 隊，若有隊伍棄權依序遞補至 9/8 18:00。</p>
+          <time>2026.09.09</time>
+          <h3>複賽完賽 412 隊，成績審核至 9/10 18:00</h3>
+          <p>複賽採現場 8 小時實作。申訴窗口已關閉。各組取前 30 名進入決賽，第 31–38 名列備取。</p>
         </article>
         <article>
-          <time>2026.08.28</time>
-          <h3>本屆首次開放產業組與學生組同場、分榜公布</h3>
-          <p>總冠軍仍從四組最高分產生；產業組另設「產業落地獎」，避免與學生隊伍直接搶同一獎座。</p>
+          <time>2026.09.10 21:00</time>
+          <h3>決賽正取名單公告（公告編號 TIOC-FIN-20260910-03）</h3>
+          <p>請以隊員姓名或隊伍編號查詢晉級結果。姓名誤植請於 9/11 09:00 前寄 desk@tioc2026.tw，主旨加隊伍編號。</p>
         </article>
         <article>
-          <time>2026.09.05</time>
-          <h3>題目領域公告，完整題幹仍於 12:00 開封</h3>
-          <p>僅公布五大應用情境關鍵字，避免預做完整系統。選手可先準備工具鏈與帳號，不得預載資料集進場。</p>
+          <time>2026.09.11</time>
+          <h3>決賽題幹仍於 12:00 開封，與複賽題目不同</h3>
+          <p>可帶入自用筆電與工具鏈。禁止預載完整解答、場外代打與私人熱點。決賽計分獨立計算。</p>
         </article>
       </div>
     </section>
@@ -526,8 +600,16 @@ footer {
     <section id="faq">
       <h2>常見問題</h2>
       <details open>
+        <summary>複賽名單跟決賽名單有差嗎？</summary>
+        <p>複賽成績排序後的正取 30 隊即為決賽名單。因個資作業，官網不公開完整名單，請用隊員姓名或編號查詢組別、桌號與決賽時間地點。</p>
+      </details>
+      <details>
         <summary>一定要中午 12 點到嗎？</summary>
-        <p>開賽與題目釋出固定 12:00。報到窗口 11:00–11:50。12:00 後未完成報到視同棄權，席次由候補遞補。</p>
+        <p>決賽開賽與題目釋出固定 9/11 12:00。報到窗口 11:00–11:50。12:00 後未完成報到視同棄權，席次由該組備取遞補。</p>
+      </details>
+      <details>
+        <summary>每隊一定要 4 人嗎？</summary>
+        <p>決賽編制為 4 人。缺員超過 1 人不得開賽；經主辦同意得以備取隊員遞補，但不得跨組。</p>
       </details>
       <details>
         <summary>可以自備電腦嗎？</summary>
@@ -545,7 +627,7 @@ footer {
 
     <section id="register" class="register">
       <h2>決賽日報到確認</h2>
-      <p class="section-lead">已取得決賽資格的隊伍請填寫以下資料，系統會寄出 9/9 報到 QR Code。現場不接受現場加報。</p>
+      <p class="section-lead">已取得決賽正取資格的隊伍請填寫以下資料，系統會寄出 9/11 報到 QR Code。現場不接受加報。</p>
       <form id="reg-form">
         <label>隊伍編號<input name="team" required placeholder="例如 TIOC-A-117" /></label>
         <label>聯絡人姓名<input name="name" required /></label>
@@ -567,30 +649,52 @@ footer {
             <option>11:40–11:50</option>
           </select>
         </label>
+        <label>決賽桌號（查詢後填寫）<input name="desk" placeholder="例如 A-12" /></label>
         <label class="full">備註<textarea name="note" rows="3" placeholder="無障礙需求、器材或指導老師陪同人數"></textarea></label>
         <button class="btn primary" type="submit">送出報到確認</button>
-        <p class="form-ok" hidden>已記錄。請於明天 11:50 前完成南側報到，12:00 準時開賽。</p>
+        <p class="form-ok" hidden>已記錄。請於 9/11 11:50 前完成南側報到，12:00 決賽準時開賽。</p>
       </form>
     </section>
   </main>
 
+  <div class="overlay" id="roster" role="dialog" aria-labelledby="roster-title">
+    <div class="sheet">
+      <div class="sheet-top">
+        <div>
+          <p class="doc-no">亞太數位創新發展協會　公告編號 TIOC-FIN-20260910-03　密等：可公開</p>
+          <h2 id="roster-title">複賽成績核定暨決賽正取名單</h2>
+        </div>
+        <button class="close-x" type="button" data-close-roster>關閉</button>
+      </div>
+      <div class="final-box">
+        <div><span>決賽時間</span><strong>2026 年 9 月 11 日（五）12:00–20:00</strong></div>
+        <div><span>決賽地點</span><strong>台北世界貿易中心展覽大樓（世貿一館）</strong><br />台北市信義區信義路五段 5 號</div>
+        <div><span>晉級規則</span><strong>每組複賽前 30 名正取、4 人一隊</strong><br />備取 8 隊，棄權依序遞補</div>
+      </div>
+      <p class="muted">核發單位：北區資通訊競賽執行中心成績組　核定時間：2026/09/10 21:00　申訴截止：2026/09/11 09:00</p>
+      <p class="muted">依個人資料保護作業，本系統<strong>不公開完整名單</strong>。請輸入隊員姓名、隊伍編號或桌號後查詢晉級結果。</p>
+      <form class="roster-tools" id="roster-form">
+        <input id="roster-q" type="search" required minlength="2" placeholder="隊員姓名／隊伍編號／桌號" autocomplete="off" />
+        <button class="btn primary" type="submit">查詢</button>
+      </form>
+      <p class="muted" id="roster-count"></p>
+      <div id="roster-result"></div>
+    </div>
+  </div>
+
   <footer>
     <p><strong>TIOC 2026 臺北資通訊公開挑戰賽</strong></p>
-    <p>2026 年 9 月 9 日 12:00　台北世界貿易中心展覽大樓　信義路五段 5 號</p>
+    <p>2026 年 9 月 11 日（五）12:00　決賽　台北世界貿易中心展覽大樓　信義路五段 5 號</p>
     <p>主辦：亞太數位創新發展協會　｜　承辦：北區資通訊競賽執行中心</p>
     <p class="tiny">本頁為活動介紹網站。報名資料僅在瀏覽器端模擬送出，不會上傳到任何伺服器。</p>
   </footer>
   <script>
-    const target = new Date("2026-09-09T12:00:00+08:00").getTime();
+    const target = new Date("2026-09-11T12:00:00+08:00").getTime();
     function tick() {
-      const now = Date.now();
-      let diff = Math.max(0, target - now);
-      const d = Math.floor(diff / 86400000);
-      diff -= d * 86400000;
-      const h = Math.floor(diff / 3600000);
-      diff -= h * 3600000;
-      const m = Math.floor(diff / 60000);
-      diff -= m * 60000;
+      let diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+      const h = Math.floor(diff / 3600000); diff -= h * 3600000;
+      const m = Math.floor(diff / 60000); diff -= m * 60000;
       const s = Math.floor(diff / 1000);
       const pad = (n) => String(n).padStart(2, "0");
       document.getElementById("d").textContent = pad(d);
@@ -607,6 +711,123 @@ footer {
       e.preventDefault();
       document.querySelector(".form-ok").hidden = false;
       e.target.reset();
+    });
+
+    function rng(seed) {
+      return function () {
+        seed = seed + 0x6d2b79f5 | 0;
+        let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+    const SURNAMES = "陳林黃張李王吳劉蔡楊許鄭謝郭洪邱曾廖賴徐周葉蘇莊呂江何蕭羅高潘簡朱鍾游詹胡施沈余盧梁趙顏柯翁魏孫".split("");
+    const GIVEN = ["家豪","志偉","承恩","冠宇","柏翰","俊傑","建宏","彥廷","子軒","宇翔","品妤","宜蓁","雅婷","欣怡","佳穎","詩涵","予安","心妍","宥蓁","思齊","恩齊","宥廷","柏宇","奕辰","宥嘉","品叡","宸宇","睿哲","浩宇","子瑜","語彤","芷妍","晨安","可凡","庭瑋","柏諺","冠霖","子豪","晏齊","佑廷","珈安","昕悅","宇辰","柏翔","立婷","佳蓉","宗翰","韋廷","欣瑜","宥均","楷翔","芷萱","詠晴","哲瑋","郁雯","柏霖","芯語","奕翔","子晴","浩廷","嘉恩","品瑄","彥勳","語萱","承祐","安婕","皓宇","芯妍","柏凱","予晴","廷恩","翔宇","雨桐","宥成","可萱","子墨","若彤","柏辰","昀蓁","庭瑜","致遠","子安","品均","嘉蔚","宥德","芯慈","韋傑","芷安","浩然","予婕"];
+    const BLOCK = new Set(["蔡宸睿","羅寬毅","林易員","蔡易恩"]);
+    const SCHOOLS = ["國立臺灣大學","國立清華大學","國立陽明交通大學","國立成功大學","國立臺灣科技大學","國立臺北科技大學","國立中央大學","國立中山大學","國立政治大學","國立臺灣師範大學","輔仁大學","淡江大學","逢甲大學","中原大學","元智大學","臺北市立大學","世新大學","銘傳大學","中國文化大學","國立虎尾科技大學","國立高雄科技大學","東吳大學","實踐大學","長庚大學"];
+    const NAMES = {
+      A: ["城市脈衝","即時路網","北風資料","信義節點","觀測窗","尖峰調度","燈號推演","流域模型","候診隊列","災害快報","巷弄熱力","雙北共乘","晨間運量","資料棧橋","語意路由","影像巡檢","公共儀表","夜間維運","跨局會流","決策沙盤","開放圖層","市民回聲","邊緣推論","時序校正","熱區預警","路廊回放","服務編排","指標工廠","場景拼圖","治理儀表"],
+      B: ["藍盾應變","零日觀測","紅隊沙盒","金鑰守門","封包燈塔","側寫追蹤","四相觀測","權限邊界","蜜罐迴廊","漏洞年表","資安會商","隔離網段","鑑識工作臺","通報矩陣","韌體守夜","雲端足跡","憑據輪替","惡意樣本","釣魚演練","組態基線","事件時序","存取閘門","暗網監測","憑證吊銷","攻擊路徑","流量哨兵","主機加固","稽核軌跡","日誌熔爐","憑證迷宮"],
+      C: ["全棧燈芯","請求編排","權限樹","訂單回放","表單工廠","會話河","快取層","介面契約","發布列車","狀態機","元件庫","觀測面板","金流沙盒","搜尋廊道","通知匯流","帳號花園","版本閘道","資料遷移","報表引擎","工作佇列","設定中心","多租戶","錯誤預算","藍綠切換","流量鏡像","契約測試","產品後台","行動端點","開放 API","服務網格"],
+      D: ["斷網十秒","感測走廊","閘道盒","邊緣心跳","電表叢集","環境探針","現場匯流排","韌體島","低功耗網","設備名冊","訊號校正","機櫃微氣候","廠區巡線","水位標尺","振動指紋","無線編隊","電源備援","協定轉譯","倉儲標籤","車道地磁","空氣分子","溫層紀錄","鎖控節點","燈光編排","農業土壤","港區吊具","校園門禁","實驗室櫃","軌道枕木","水塔回波"]
+    };
+
+    function pickName(rand, used) {
+      for (let i = 0; i < 80; i++) {
+        const n = SURNAMES[Math.floor(rand() * SURNAMES.length)] + GIVEN[Math.floor(rand() * GIVEN.length)];
+        if (!used.has(n) && !BLOCK.has(n)) { used.add(n); return n; }
+      }
+      const n = "臨時" + Math.floor(rand() * 9999);
+      used.add(n);
+      return n;
+    }
+
+    const TRACKS = [
+      { id: "A", name: "A. 智慧應用組" },
+      { id: "B", name: "B. 資安攻防組" },
+      { id: "C", name: "C. 全端系統組" },
+      { id: "D", name: "D. 物聯網與邊緣組" }
+    ];
+    const used = new Set();
+    const data = {};
+    TRACKS.forEach((tr, ti) => {
+      const rand = rng(20260910 + ti * 97);
+      const teams = [];
+      for (let i = 0; i < 38; i++) {
+        const featured = i === 6 && tr.id === "B";
+        const members = featured
+          ? ["蔡宸睿","羅寬毅","林易員","蔡易恩"]
+          : [0, 1, 2, 3].map(() => pickName(rand, used));
+        const org = featured
+          ? "跨校聯隊（臺科大／北科大／臺師大）"
+          : SCHOOLS[Math.floor(rand() * SCHOOLS.length)];
+        const score = (96.4 - i * 0.62 - ti * 0.07 - rand() * 0.18).toFixed(2);
+        const teamName = i < 30 ? NAMES[tr.id][i] : ("備取-" + tr.id + String(i - 29).padStart(2, "0"));
+        teams.push({
+          rank: i + 1,
+          trackId: tr.id,
+          track: tr.name,
+          status: i < 30 ? "正取" : "備取",
+          desk: i < 30 ? tr.id + "-" + String(i + 1).padStart(2, "0") : "—",
+          code: "TIOC-2026-" + tr.id + "-" + String(i + 1).padStart(3, "0"),
+          name: teamName,
+          org,
+          members,
+          score
+        });
+      }
+      data[tr.id] = teams;
+    });
+    const allTeams = TRACKS.flatMap((tr) => data[tr.id]);
+
+    function queryTeams(q) {
+      const key = q.replace(/\s+/g, "");
+      if (key.length < 2) return [];
+      return allTeams.filter((t) => {
+        const blob = [t.name, t.code, t.desk, t.org, t.track, ...t.members].join("").replace(/\s+/g, "");
+        return blob.includes(key);
+      });
+    }
+
+    function renderResults(q) {
+      const box = document.getElementById("roster-result");
+      const count = document.getElementById("roster-count");
+      if (!q) {
+        count.textContent = "";
+        box.innerHTML = "<p class=\"muted\">尚未查詢。輸入至少兩個字後按「查詢」。</p>";
+        return;
+      }
+      const rows = queryTeams(q);
+      if (!rows.length) {
+        count.textContent = "查無符合資料";
+        box.innerHTML = "<p class=\"muted\">請確認姓名用字或編號。若為複賽完賽但未上榜，表示未進入該組前 30 名正取或備取。</p>";
+        return;
+      }
+      count.textContent = "符合 " + rows.length + " 筆";
+      box.innerHTML = rows.map((t) =>
+        "<article class=\"card notice\" style=\"margin-bottom:0.8rem\">" +
+        "<p class=\"doc-no\">" + t.status + "　" + t.track + "</p>" +
+        "<h3>" + t.name + "　" + t.code + "</h3>" +
+        "<p>所屬單位：" + t.org + "<br />隊員：" + t.members.join("、") + "<br />複賽總分：" + t.score +
+        (t.status === "正取" ? "　決賽桌號：<span class=\"desk\">" + t.desk + "</span>" : "　備取順位：" + (t.rank - 30)) + "</p>" +
+        "<p><strong>決賽時間</strong> 2026/09/11（五）12:00–20:00<br /><strong>決賽地點</strong> 台北世界貿易中心展覽大樓（世貿一館）　信義路五段 5 號</p>" +
+        "</article>"
+      ).join("");
+    }
+
+    const overlay = document.getElementById("roster");
+    function openRoster() {
+      overlay.classList.add("open");
+      document.getElementById("roster-q").value = "";
+      renderResults("");
+    }
+    function closeRoster() { overlay.classList.remove("open"); }
+    document.querySelectorAll("[data-open-roster]").forEach((el) => el.addEventListener("click", () => openRoster()));
+    document.querySelector("[data-close-roster]").addEventListener("click", closeRoster);
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) closeRoster(); });
+    document.getElementById("roster-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      renderResults(document.getElementById("roster-q").value.trim());
     });
   </script>
 </body>
